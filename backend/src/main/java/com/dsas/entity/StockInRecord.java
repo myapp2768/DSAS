@@ -1,6 +1,7 @@
 package com.dsas.entity;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
@@ -17,6 +18,10 @@ public class StockInRecord {
     @Column(name = "material_id", nullable = false)
     private Long materialId;
     
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "material_id", insertable = false, updatable = false)
+    private AgriculturalMaterial material;
+    
     @Column(name = "quantity", nullable = false)
     private Integer quantity;
     
@@ -26,17 +31,41 @@ public class StockInRecord {
     @Column(name = "total_price")
     private Double totalPrice;
     
+    @Column(name = "total_amount")
+    private BigDecimal totalAmount;
+    
     @Column(name = "supplier")
     private String supplier;
+    
+    @Column(name = "supplier_name")
+    private String supplierName;
     
     @Column(name = "batch_number")
     private String batchNumber;
     
+    @Column(name = "inbound_number")
+    private String inboundNumber;
+    
     @Column(name = "expiry_date")
     private LocalDateTime expiryDate;
     
+    @Column(name = "inbound_date")
+    private LocalDateTime inboundDate;
+    
     @Column(name = "operator")
     private String operator;
+    
+    @Column(name = "operator_name")
+    private String operatorName;
+    
+    @Column(name = "inbound_reason")
+    private String inboundReason;
+    
+    @Column(name = "quality_status")
+    private String qualityStatus;
+    
+    @Column(name = "storage_location")
+    private String storageLocation;
     
     @Column(name = "remark")
     private String remark;
@@ -178,6 +207,97 @@ public class StockInRecord {
     
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+    
+    // 新增字段的getter和setter
+    public AgriculturalMaterial getMaterial() {
+        return material;
+    }
+    
+    public void setMaterial(AgriculturalMaterial material) {
+        this.material = material;
+    }
+    
+    public BigDecimal getTotalAmount() {
+        return totalAmount;
+    }
+    
+    public void setTotalAmount(BigDecimal totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+    
+    public String getSupplierName() {
+        return supplierName;
+    }
+    
+    public void setSupplierName(String supplierName) {
+        this.supplierName = supplierName;
+    }
+    
+    public String getInboundNumber() {
+        return inboundNumber;
+    }
+    
+    public void setInboundNumber(String inboundNumber) {
+        this.inboundNumber = inboundNumber;
+    }
+    
+    public LocalDateTime getInboundDate() {
+        return inboundDate;
+    }
+    
+    public void setInboundDate(LocalDateTime inboundDate) {
+        this.inboundDate = inboundDate;
+    }
+    
+    public String getOperatorName() {
+        return operatorName;
+    }
+    
+    public void setOperatorName(String operatorName) {
+        this.operatorName = operatorName;
+    }
+    
+    public String getInboundReason() {
+        return inboundReason;
+    }
+    
+    public void setInboundReason(String inboundReason) {
+        this.inboundReason = inboundReason;
+    }
+    
+    public String getQualityStatus() {
+        return qualityStatus;
+    }
+    
+    public void setQualityStatus(String qualityStatus) {
+        this.qualityStatus = qualityStatus;
+    }
+    
+    public String getStorageLocation() {
+        return storageLocation;
+    }
+    
+    public void setStorageLocation(String storageLocation) {
+        this.storageLocation = storageLocation;
+    }
+    
+    // 业务方法
+    public void calculateTotalAmount() {
+        if (quantity != null && unitPrice != null) {
+            this.totalAmount = BigDecimal.valueOf(quantity).multiply(BigDecimal.valueOf(unitPrice));
+            this.totalPrice = quantity * unitPrice;
+        }
+    }
+    
+    public void complete() {
+        this.status = Status.COMPLETED;
+        this.updatedAt = LocalDateTime.now();
+    }
+    
+    public void cancel() {
+        this.status = Status.CANCELLED;
+        this.updatedAt = LocalDateTime.now();
     }
     
     @PreUpdate
