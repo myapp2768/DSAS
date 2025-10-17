@@ -1,0 +1,127 @@
+[
+  {
+    "internalCode": "XS-0001",
+    "category": "肥料",
+    "name": "中量元素水溶肥",
+    "brand": "中化摩彩",
+    "specification": "10kg/包",
+    "unit": "kg",
+    "content": 10.00,
+    "unitPrice": 36.0656,
+    "pricePerUnit": 3.6066,
+    "remark": "中量元素水溶肥，适用于各种作物"
+  },
+  {
+    "internalCode": "XS-0002",
+    "category": "肥料",
+    "name": "中量元素水溶肥料",
+    "brand": "中化",
+    "specification": "20kg/包",
+    "unit": "kg",
+    "content": 20.00,
+    "unitPrice": 72.1443,
+    "pricePerUnit": 3.6072,
+    "remark": "中量元素肥料"
+  },
+  {
+    "internalCode": "XS-0003",
+    "category": "肥料",
+    "name": "平衡肥19-19-19",
+    "brand": "海法",
+    "specification": "5L/桶",
+    "unit": "L",
+    "content": 5.00,
+    "unitPrice": 347.50,
+    "pricePerUnit": 69.5000,
+    "remark": "平衡型肥料"
+  },
+  {
+    "internalCode": "XS-0004",
+    "category": "肥料",
+    "name": "平衡肥20-20-20",
+    "brand": "吉尔肥施通",
+    "specification": "25kg/包",
+    "unit": "kg",
+    "content": 25.00,
+    "unitPrice": 347.50,
+    "pricePerUnit": 13.9000,
+    "remark": "平衡型肥料"
+  },
+  {
+    "internalCode": "XS-0005",
+    "category": "肥料",
+    "name": "高钾肥15-5-30",
+    "brand": "绿世界",
+    "specification": "25kg/包",
+    "unit": "kg",
+    "content": 25.00,
+    "unitPrice": 384.37,
+    "pricePerUnit": 15.3749,
+    "remark": "高钾型肥料"
+  },
+  {
+    "internalCode": "XS-0006",
+    "category": "肥料",
+    "name": "高钾肥16-8-32",
+    "brand": "海法",
+    "specification": "10kg/包",
+    "unit": "kg",
+    "content": 10.00,
+    "unitPrice": 157.00,
+    "pricePerUnit": 15.7000,
+    "remark": "高钾型肥料"
+  },
+  {
+    "internalCode": "XS-0007",
+    "category": "肥料",
+    "name": "高磷肥8-32-10",
+    "brand": "绿世界",
+    "specification": "25kg/包",
+    "unit": "kg",
+    "content": 25.00,
+    "unitPrice": 347.73,
+    "pricePerUnit": 13.9092,
+    "remark": "高磷型肥料"
+  },
+  {
+    "internalCode": "XS-0008",
+    "category": "肥料",
+    "name": "高磷肥10-34-18",
+    "brand": "吉尔肥施通",
+    "specification": "10kg/包",
+    "unit": "kg",
+    "content": 10.00,
+    "unitPrice": 322.50,
+    "pricePerUnit": 32.2500,
+    "remark": "高磷型肥料"
+  },
+  {
+    "internalCode": "XS-0009",
+    "category": "肥料",
+    "name": "高氮肥30-10-10",
+    "brand": "吉尔肥施通",
+    "specification": "25kg/包",
+    "unit": "kg",
+    "content": 25.00,
+    "unitPrice": 445.11,
+    "pricePerUnit": 17.8045,
+    "remark": "高氮型肥料"
+  },
+  {
+    "internalCode": "XS-0010",
+    "category": "肥料",
+    "name": "钙镁硼锌铁铜",
+    "brand": "银海化工",
+    "specification": "25kg/包",
+    "unit": "kg",
+    "content": 25.00,
+    "unitPrice": 435.65,
+    "pricePerUnit": 17.4259,
+    "remark": "微量元素肥料"
+  }
+]
+
+
+
+
+

@@ -1,0 +1,16 @@
+{
+  "category": "肥料",
+  "name": "测试肥料",
+  "brand": "测试品牌",
+  "specification": "5kg/包",
+  "unit": "kg",
+  "content": 5.00,
+  "unitPrice": 50.00,
+  "pricePerUnit": 10.00,
+  "remark": "测试数据"
+}
+
+
+
+
+
