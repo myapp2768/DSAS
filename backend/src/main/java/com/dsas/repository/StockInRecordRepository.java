@@ -25,39 +25,39 @@ public interface StockInRecordRepository extends JpaRepository<StockInRecord, Lo
     /**
      * 根据农资ID查询入库记录
      */
-    List<StockInRecord> findByMaterialIdOrderByCreatedTimeDesc(Long materialId);
+    List<StockInRecord> findByMaterialIdOrderByCreatedAtDesc(Long materialId);
     
     /**
      * 根据农资查询入库记录
      */
-    List<StockInRecord> findByMaterialOrderByCreatedTimeDesc(AgriculturalMaterial material);
+    List<StockInRecord> findByMaterialOrderByCreatedAtDesc(AgriculturalMaterial material);
     
     /**
      * 根据状态查询入库记录
      */
-    List<StockInRecord> findByStatusOrderByCreatedTimeDesc(StockInRecord.Status status);
+    List<StockInRecord> findByStatusOrderByCreatedAtDesc(StockInRecord.Status status);
     
     /**
      * 根据供应商查询入库记录
      */
-    List<StockInRecord> findBySupplierNameOrderByCreatedTimeDesc(String supplierName);
+    List<StockInRecord> findBySupplierNameOrderByCreatedAtDesc(String supplierName);
     
     /**
      * 根据操作员查询入库记录
      */
-    List<StockInRecord> findByOperatorNameOrderByCreatedTimeDesc(String operatorName);
+    List<StockInRecord> findByOperatorNameOrderByCreatedAtDesc(String operatorName);
     
     /**
      * 根据时间范围查询入库记录
      */
-    @Query("SELECT sir FROM StockInRecord sir WHERE sir.createdTime BETWEEN :startTime AND :endTime ORDER BY sir.createdTime DESC")
+    @Query("SELECT sir FROM StockInRecord sir WHERE sir.createdAt BETWEEN :startTime AND :endTime ORDER BY sir.createdAt DESC")
     List<StockInRecord> findByTimeRange(@Param("startTime") LocalDateTime startTime, 
                                        @Param("endTime") LocalDateTime endTime);
     
     /**
      * 根据农资ID和时间范围查询入库记录
      */
-    @Query("SELECT sir FROM StockInRecord sir WHERE sir.material.id = :materialId AND sir.createdTime BETWEEN :startTime AND :endTime ORDER BY sir.createdTime DESC")
+    @Query("SELECT sir FROM StockInRecord sir WHERE sir.material.id = :materialId AND sir.createdAt BETWEEN :startTime AND :endTime ORDER BY sir.createdAt DESC")
     List<StockInRecord> findByMaterialIdAndTimeRange(@Param("materialId") Long materialId,
                                                     @Param("startTime") LocalDateTime startTime,
                                                     @Param("endTime") LocalDateTime endTime);
@@ -65,7 +65,7 @@ public interface StockInRecordRepository extends JpaRepository<StockInRecord, Lo
     /**
      * 根据批次号查询入库记录
      */
-    List<StockInRecord> findByBatchNumberOrderByCreatedTimeDesc(String batchNumber);
+    List<StockInRecord> findByBatchNumberOrderByCreatedAtDesc(String batchNumber);
     
     /**
      * 统计指定农资的入库总量
@@ -76,7 +76,7 @@ public interface StockInRecordRepository extends JpaRepository<StockInRecord, Lo
     /**
      * 统计指定时间范围内的入库总量
      */
-    @Query("SELECT COALESCE(SUM(sir.quantity), 0) FROM StockInRecord sir WHERE sir.createdTime BETWEEN :startTime AND :endTime AND sir.status = 'COMPLETED'")
+    @Query("SELECT COALESCE(SUM(sir.quantity), 0) FROM StockInRecord sir WHERE sir.createdAt BETWEEN :startTime AND :endTime AND sir.status = 'COMPLETED'")
     Double sumInboundQuantityByTimeRange(@Param("startTime") LocalDateTime startTime, 
                                         @Param("endTime") LocalDateTime endTime);
     
@@ -89,7 +89,7 @@ public interface StockInRecordRepository extends JpaRepository<StockInRecord, Lo
     /**
      * 查询待处理的入库记录
      */
-    @Query("SELECT sir FROM StockInRecord sir WHERE sir.status = 'PENDING' ORDER BY sir.createdTime ASC")
+    @Query("SELECT sir FROM StockInRecord sir WHERE sir.status = 'PENDING' ORDER BY sir.createdAt ASC")
     List<StockInRecord> findPendingRecords();
     
     /**
@@ -101,7 +101,7 @@ public interface StockInRecordRepository extends JpaRepository<StockInRecord, Lo
     /**
      * 根据质量状态查询入库记录
      */
-    List<StockInRecord> findByQualityStatusOrderByCreatedTimeDesc(String qualityStatus);
+    List<StockInRecord> findByQualityStatusOrderByCreatedAtDesc(String qualityStatus);
     
     /**
      * 查询即将过期的入库记录

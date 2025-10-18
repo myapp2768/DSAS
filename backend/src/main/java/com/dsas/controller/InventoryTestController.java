@@ -89,8 +89,8 @@ public class InventoryTestController {
             // 创建测试入库单
             StockInRecord stockInRecord = new StockInRecord();
             stockInRecord.setMaterial(savedMaterial);
-            stockInRecord.setQuantity(new BigDecimal("100"));
-            stockInRecord.setUnitPrice(new BigDecimal("100.00"));
+            stockInRecord.setQuantity(100);
+            stockInRecord.setUnitPrice(100.00);
             stockInRecord.setSupplierName("测试供应商");
             stockInRecord.setOperatorName("测试操作员");
             stockInRecord.setInboundReason("测试入库");

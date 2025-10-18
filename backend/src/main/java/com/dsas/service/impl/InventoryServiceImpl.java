@@ -463,15 +463,15 @@ public class InventoryServiceImpl implements InventoryService {
         InventoryRecord record = new InventoryRecord();
         record.setMaterial(stockInRecord.getMaterial());
         record.setOperationType(InventoryRecord.OperationType.IN);
-        record.setQuantity(stockInRecord.getQuantity());
-        record.setUnitPrice(stockInRecord.getUnitPrice());
+        record.setQuantity(BigDecimal.valueOf(stockInRecord.getQuantity()));
+        record.setUnitPrice(BigDecimal.valueOf(stockInRecord.getUnitPrice()));
         record.setTotalAmount(stockInRecord.getTotalAmount());
         record.setOperatorName(stockInRecord.getOperatorName());
         record.setOperationReason(stockInRecord.getInboundReason());
         record.setRelatedDocument(stockInRecord.getInboundNumber());
         
         // 计算操作前后的库存
-        BigDecimal beforeQuantity = calculateCurrentStock(stockInRecord.getMaterial().getId()).subtract(stockInRecord.getQuantity());
+        BigDecimal beforeQuantity = calculateCurrentStock(stockInRecord.getMaterial().getId()).subtract(BigDecimal.valueOf(stockInRecord.getQuantity()));
         record.setBeforeQuantity(beforeQuantity);
         record.setAfterQuantity(calculateCurrentStock(stockInRecord.getMaterial().getId()));
         
