@@ -139,12 +139,12 @@ public class InventoryServiceImpl implements InventoryService {
     
     @Override
     public List<StockInRecord> getStockInRecordsByMaterialId(Long materialId) {
-        return stockInRecordRepository.findByMaterialIdOrderByCreatedTimeDesc(materialId);
+        return stockInRecordRepository.findByMaterialIdOrderByCreatedAtDesc(materialId);
     }
     
     @Override
     public List<StockInRecord> getStockInRecordsByStatus(StockInRecord.Status status) {
-        return stockInRecordRepository.findByStatusOrderByCreatedTimeDesc(status);
+        return stockInRecordRepository.findByStatusOrderByCreatedAtDesc(status);
     }
     
     // ==================== 出库管理 ====================
@@ -504,7 +504,7 @@ public class InventoryServiceImpl implements InventoryService {
      * 获取最后入库时间
      */
     private LocalDateTime getLastInDate(Long materialId) {
-        List<StockInRecord> records = stockInRecordRepository.findByMaterialIdOrderByCreatedTimeDesc(materialId);
+        List<StockInRecord> records = stockInRecordRepository.findByMaterialIdOrderByCreatedAtDesc(materialId);
         return records.isEmpty() ? null : records.get(0).getInboundDate();
     }
     
